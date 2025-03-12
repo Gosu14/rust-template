@@ -14,6 +14,10 @@ impl Guest for Component {
         klave::router::add_user_transaction("insert_in_ledger");
     }
 
+    fn ping(cmd: String){
+        klave::notifier::send_string(&format!("pong: '{}'", cmd));
+    }
+
     fn load_from_ledger(cmd: String){
         let Ok(v) = serde_json::from_str::<Value>(&cmd) else {
             klave::notifier::send_string(&format!("failed to parse '{}' as json", cmd));
