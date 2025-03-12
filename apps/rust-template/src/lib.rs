@@ -15,7 +15,7 @@ impl Guest for Component {
     }
 
     fn ping(cmd: String){
-        klave::notifier::send_string(&format!("pang: '{}'", cmd));
+        klave::notifier::send_string(&format!("pong: '{}'", cmd));
     }
 
     fn load_from_ledger(cmd: String){
